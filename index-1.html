@@ -14,9 +14,156 @@
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
+				font:normal 12px/22px 宋体;
 			}
+			
+			*{
+				margin:0; 
+				padding:0; 
+				list-style:none; 
+			}
+			.menu{
+      	color:red;
+      }
+      .menu ul{
+      	display:flex;
+      	justify-content:center;
+      }
+      .menu ul li{
+	    width:200px;
+      	line-height:50px;
+      	text-align:center;
+      }
+        img{
+	     width:260px;
+       	 height:130px;
+       }
+       .box{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+			}
+       #view_box{
+	     width:1000px;
+       	 height:130px;
+       	 margin:0 auto;
+       	 border-radius:25px;
+       	 overflow:hidden;
+       	 margin-top:0px;
+       }
+       #inner{
+       	 position:relative;
+       	 left:0px;
+       	 display:flex;
+       	 justify-content:space-between;
+       }
+       #div1,#div2{
+       	 display:flex;
+       	 justify-content:space-between;
+       }
+        .slideTxtBox .bd{
+        	width:1000px;
+        	margin:0 auto;
+        	margin-top:0px;
+        	border-radius:25px;
+			background-color: greenyellow;
+			opacity: 0.5;
+			}
+			.slideTxtBox .bd ul{ 
+				padding:15px;  
+				zoom:1;  
+			}
+			.slideTxtBox .bd p{  
+				line-height:24px; 
+				text-emphasis-color: black;  
+			}
+			.slideTxtBox .bd li .date{ 
+				float:right; 
+				color:#999;  
+			}
+			.ct{
+				float: right;
+				width: 30%;
+			}
+			.back{
+				position: absolute;
+				width: 67.5px;
+				height: 60px;
+				left: 0px;
+				top: 0px;
+			}
+		
 		</style>
+		<script type="text/javascript">
+      var left = 0;
+      var raf;
+      function init(){
+    	  document.getElementById("div2").innerHTML = document.getElementById("div1").innerHTML;
+    	  document.getElementById("view_box").onmouseover = function(){
+    		  window.cancelAnimationFrame(raf);
+    	  }
+    	  
+    	  document.getElementById("view_box").onmouseout = function(){
+    		  moveImage();
+    	  }
+    	  
+    	  moveImage();
+      }
+      function moveImage(){
+    	  document.getElementById("inner").style.left = left+"px";
+    	  left-=2;
+    	  if(left <= -3200){
+    		  left = 0;
+    	  }
+    	  
+    	  raf = window.requestAnimationFrame(moveImage);
+      }
+    </script>
 	</head>
-	<body>
+	<body onload="init()">
+		<a href="index.html"><img src="img/back.png" class="back"/></a>
+        <div class="menu">
+          <ul>
+        	<li>首页</li>
+        	<a href="index-1-1.html"><li>节目由来</li></a>
+        	<a href="index-1-2.html"><li>屈原生平</li></a>
+        	<a href="index-1-3.html"><li>历史文化</li></a>
+      	</ul>
+    	</div>
+    	<div id="view_box">
+      <div id="inner">
+        <div id="div1">
+          <img src="img/4.jpg" />
+          <img src="img/13.jpg" />
+          <img src="img/14.jpg" />
+          <img src="img/15.jpg" />
+          <img src="img/15.png" />
+          <img src="img/16.png" />
+          <img src="img/10.jpg" />
+          <img src="img/12.jpg" />
+          <img src="img/4.jpg" />
+          <img src="img/13.jpg" />
+          <img src="img/14.jpg" />
+          <img src="img/15.jpg" />
+          <img src="img/15.png" />
+          <img src="img/16.png" />
+          <img src="img/10.jpg" />
+          <img src="img/12.jpg" />
+        </div>
+        <div id="div2"></div>
+      </div>
+    </div>
+    <div class="slideTxtBox">
+    	<div class="bd">
+				<ul>
+					<p>端午节，又称端阳节、龙舟节、重五节、天中节等，是集拜神祭祖、祈福辟邪、欢庆娱乐和饮食为一体的民俗大节。端午节源于自然天象崇拜，由上古时代祭龙演变而来。仲夏端午，苍龙七宿飞升于正南中央，处在全年最"中正"之位，正如《易经·乾卦》第五爻:"飞龙在天"。端午是"飞龙在天"吉祥日，龙及龙舟文化始终贯穿在端午节的传承历史中。</p>
+					<p>端午节是流行于中国以及汉字文化圈诸国的传统文化节日， 传说战国时期的楚国诗人屈原在五月初五跳汨罗江自尽，后人亦将端午节作为纪念屈原的节日;也有纪念伍子胥、曹娥及介子推等说法。端午节的起源涵盖了古老星象文化、人文哲学等方面内容，蕴含着深邃丰厚的文化内涵，在传承发展中杂糅了多种民俗为一体，各地因地域文化不同而又存在着习俗内容或细节上的差异。
+					<p>端午节与春节、清明节、中秋节并称为中国四大传统节日。端午文化在世界上影响广泛，世界上一些国家和地区也有庆贺端午的活动。2006年5月，国务院将其列入首批国家级非物质文化遗产名录;自2008年起，被列为国家法定节假日。2009年9月，联合国教科文组织正式批准将其列入《人类非物质文化遗产代表作名录》，端午节成为中国首个入选世界非遗的节日。</p>
+					<p>端午从字面上还有“端五”、“重五”、“重午”等名称。“端”古汉语有开头、初始的意思，称“端五”也就如称“初五”。《风土记》里说：“仲夏端午。端者，初也。”每月有三个五日，头一个五日就是“端五”。古人习惯把五月的前几天分别以端来称呼，元代陈元靓《岁时广记》云：“京师市尘人，以五月初一为端一，初二为端二，数以至五谓之端五。”</p>
+					<p>古人纪年通用天干地支，按地支顺序推算，农历的正月开始为寅月，按地支“子丑寅卯辰巳午未申酉戌亥”顺序推算，第五个月正是“午月”，而午时又为“阳辰”，所以端午也叫“端阳”。午，古人与“五”通用，故端午与端五同义。又因其月日数相同，人们又称端午节为“重五节”或“重午节”。</p>
+					<p>据统计，端午节的名称叫法就有二十多个，如端五节、端阳节、重五节、重午节、当五汛、天中节、夏节、五月节、菖节、蒲节、龙舟节、浴兰节、屈原日、午日节、女儿节、地腊节、诗人节、龙日、午日、灯节、五蛋节等等。</p>
+				</ul>
+		</div>
+    </div>
 	</body>
 </html>

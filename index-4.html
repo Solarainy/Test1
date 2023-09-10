@@ -14,7 +14,7 @@
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
-				margin: 50px;
+				margin: 5% 5% 5% 5%;
 			}
 			.div1{
 				position: absolute;
@@ -22,7 +22,7 @@
 				opacity: 0.5;
 				margin: 50px;
 				width: 85%;
-				height: 80%;
+				height: 75%;
 			}
 			.div2{
 				margin: 50px;
@@ -60,18 +60,26 @@
 				height: 40px;
 				cursor: pointer;
 			}
+			.back{
+				position: absolute;
+				width: 67.5px;
+				height: 60px;
+				left: 0px;
+				top: 0px;
+			}
 		</style>
 	</head>
 	<body>
+		<a href="index.html"><img src="img/back.png" class="back"/></a>
 		<div class="div1">
 			<div class="div2">
 				</br></br></br>
 				<font size="5"><b>1.端午节是国家法定的传统节日，每年的端午节是农历的什么时候？</b></font>
 				<font size="4">
-					<p><input type="button" value="A.五月初五" class="botton" onclick="right()"/></p>
-					<p><input type="button" value="B.六月初六" class="botton" onclick="wrong()"/></p>
-					<p><input type="button" value="C.五月十五" class="botton" onclick="wrong()"/></p>
-					<p><input type="button" value="D.五月初十" class="botton" onclick="wrong()"/></p>
+					<p><input type="button" value="A.五月初五" class="botton" onclick="right()"/><audio src="audio/正确.mp3" id="rgt"/></p>
+					<p><input type="button" value="B.六月初六" class="botton" onclick="wrong()"/><audio src="audio/错误.mp3" id="wrg"/></p>
+					<p><input type="button" value="C.五月十五" class="botton" onclick="wrong()"/><audio src="audio/错误.mp3" id="wrg"/></p>
+					<p><input type="button" value="D.五月初十" class="botton" onclick="wrong()"/><audio src="audio/错误.mp3" id="wrg"/></p>
 				</font>
 				<div class="div3">
 					<p><font id="answer" ></font></p>
@@ -81,6 +89,8 @@
 		</div>
 		<script type="text/javascript">
 			function right(){
+				var audio=document.getElementById("rgt");
+				audio.play();
 				var answer=document.getElementById("answer");
 				answer.innerHTML="恭喜回答正确！";
 				answer.className="right";
@@ -88,6 +98,8 @@
 				next.className="xbt";
 			}
 			function wrong(){
+				var audio=document.getElementById("wrg");
+				audio.play();
 				var answer=document.getElementById("answer");
 				answer.innerHTML="很遗憾回答错误";
 				answer.className="wrong";
