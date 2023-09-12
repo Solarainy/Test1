@@ -16,58 +16,60 @@
 				background-size: 100% 100%;
 				font:normal 12px/22px 宋体;
 			}
-			
+			a{
+				text-decoration: none;
+			}
 			*{
 				margin:0; 
 				padding:0; 
 				list-style:none; 
 			}
 			.menu{
-      	color:red;
-      }
-      .menu ul{
-      	display:flex;
-      	justify-content:center;
-      }
-      .menu ul li{
-	    width:200px;
-      	line-height:50px;
-      	text-align:center;
-      }
-        img{
-	     width:260px;
-       	 height:130px;
-       }
-       .box{
-		display: flex;
-		justify-content: center;
-		align-items: center;
+      			color:red;
+      		}
+	       	.menu ul{
+	      		display:flex;
+	      		justify-content:center;
+	      	}
+		     .menu ul li{
+			    width:200px;
+		      	line-height:50px;
+		      	text-align:center;
+		    }
+		    img{
+			    width:260px;
+		       	height:130px;
+		    }
+		    .box{
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
-       #view_box{
-	     width:1000px;
-       	 height:130px;
-       	 margin:0 auto;
-       	 border-radius:25px;
-       	 overflow:hidden;
-       	 margin-top:0px;
-       }
-       #inner{
-       	 position:relative;
-       	 left:0px;
-       	 display:flex;
-       	 justify-content:space-between;
-       }
-       #div1,#div2{
-       	 display:flex;
-       	 justify-content:space-between;
-       }
-        .slideTxtBox .bd{
-        	width:1000px;
-        	margin:0 auto;
-        	margin-top:0px;
-        	border-radius:25px;
-			background-color: greenyellow;
-			opacity: 0.5;
+		    #view_box{
+			    width:1000px;
+		       	height:130px;
+		       	margin:0 auto;
+		       	border-radius:25px;
+		       	overflow:hidden;
+		       	margin-top:0px;
+		    }
+		    #inner{
+		       	position:relative;
+		       	left:0px;
+		       	display:flex;
+		       	justify-content:space-between;
+		    }
+		    #div1,#div2{
+		       	display:flex;
+		       	justify-content:space-between;
+		    }
+	        .slideTxtBox .bd{
+	        	width:1000px;
+	        	margin:0 auto;
+	        	margin-top:0px;
+	        	border-radius:25px;
+				background-color: greenyellow;
+				opacity: 0.5;
 			}
 			.slideTxtBox .bd ul{ 
 				padding:15px;  
@@ -85,14 +87,29 @@
 				float: right;
 				width: 30%;
 			}
+			.title{
+				text-align: center;
+				margin-top: 5%;
+				height: 0px;
+			}
 			.back{
+				background-color: green;
 				position: absolute;
-				width: 67.5px;
+				width: 90px;
 				height: 60px;
 				left: 0px;
 				top: 0px;
+				text-align: center;
 			}
-		
+			.fhsy{
+				line-height: 50px;
+				height: 50px;
+				color: greenyellow;
+				font-size: 20px;
+			}
+			.biaot{
+				width: 300px;
+			}
 		</style>
 		<script type="text/javascript">
       var left = 0;
@@ -121,7 +138,9 @@
     </script>
 	</head>
 	<body onload="init()">
-		<a href="index.html"><img src="img/back.png" class="back"/></a>
+		<div class="back">
+			<a href="index.html"><font class="fhsy">返回首页</font></a>
+		</div>
         <div class="menu">
           <ul>
         	<li>首页</li>
