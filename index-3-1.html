@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  			html{
+  				height:100%;
+  			}
+  			body{
+				background-image: url("img/3.jpg");
+				background-repeat: no-repeat;
+				background-position: center 0;
+				background-size:100% 100%;
+			}
+  	        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        .box {
+            width: 312px;
+            height: 312px;
+            border: 3px solid #000;
+            margin: 50px auto 5px;
+            font-size: 0;
+            margin-top:-35%;
+        }
+ 
+        .box div {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: 2px solid #000;
+        }
+ 
+        .d1 {
+            background-image: url(img/1.jpg);
+            background-size: 300px 300px;
+            background-position: 0px 0px;
+        }
+        #but {
+            border: 1px solid #000 transparent;
+            width: 300px;
+            height: 30px;
+            margin: 0 auto;
+        }
+ 
+        #but img {
+            width: 100px;
+            height: 100px;
+            float: right;
+            display: none;
+        }
+        button {
+            margin: 1px auto;
+            border: 1px solid #000;
+        }
+        img{
+        	width:150px;
+        	height:100px;
+        }
+        
+        .aa1{
+        	color:red;
+        	font-size:25px;
+        	text-align:center;
+        }
+        .aa2{
+        	font-size:20px;
+        	text-align:center;
+        }
+        .aa3{
+        	width:350px;
+        	height:620px;
+        }
+        .back{
+				background-color: green;
+				position: absolute;
+				width: 90px;
+				height: 60px;
+				left: 0px;
+				top: 0px;
+				text-align: center;
+			}
+			.fhsy{
+				line-height: 50px;
+				height: 50px;
+				color: greenyellow;
+				font-size: 20px;
+			}
+  </style>
+</head>
+<body>
+	<a href="index-3.html">
+			<div class="back">
+				<font class="fhsy">返回</font>
+			</div>
+		</a>
+</br>
+	<p class='aa1'>拼图游戏</p>
+	<p class='aa2'>注：用鼠标进行拖曳来进行两个图片之间的交换</p>
+	<img class="aa3" src='img/28.png'>
+     <div class="box">
+        <div id="d1" class="d1"></div>
+        <div id="d2" class="d1"></div>
+        <div id="d3" class="d1"></div>
+        <div id="d4" class="d1"></div>
+        <div id="d5" class="d1"></div>
+        <div id="d6" class="d1"></div>
+        <div id="d7" class="d1"></div>
+        <div id="d8" class="d1"></div>
+        <div id="d9" class="d1"></div>
+ 
+    </div>
+    <div id="but">
+        <button id="but1">一键完成</button>
+        <button id="but2">开始游戏</button>
+        <button id="but3">看一眼原图</button>
+        <div>
+            <img id="yan" src="img/1.jpg" alt="">
+        </div>
+    </div>
+  <script>
+  	var data = [['0 0'], ['-100px 0'], ['-200px 0'], ['0 -100px'], ['-100px -100px'], ['-200px -100px'], ['0 -200px'], ['-100px -200px'], ['-200px -200px']]
+ 
+        var but1 = document.getElementById("but1")
+        var but2 = document.getElementById("but2")
+        var but3 = document.getElementById("but3")
+        var yan = document.getElementById("yan")
+        var divs = document.querySelectorAll(".d1")
+ 
+        // 刚打开保持完整
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.backgroundPosition = data[i][0]
+        }
+        // 一键完成
+        but1.addEventListener("click", function () {
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.backgroundPosition = data[i][0]
+            }
+        })
+        // 开始游戏
+        but2.addEventListener("click", function () {
+var arr = [];
+            var maxTimes = 9
+            do {
+                var num = Math.floor(Math.random() * 9);
+                if (-1 == arr.indexOf(num)) {
+                    arr.push(num);
+                    maxTimes--;
+                }
+            } while (maxTimes);
+            for (var i = 0; i < divs.length; i++) {
+                const k = arr[i]
+                divs[k].style.backgroundPosition = data[i][0]
+            }
+        })
+        // 看一眼原图
+        but3.addEventListener("mousedown", function () {
+            yan.style.display = "block"
+        })
+        but3.addEventListener("mouseup", function () {
+            yan.style.display = "none"
+        })
+        divs.forEach(function (v, i) {
+            v.draggable = "true"
+            //开始拖拽的时候触发事件
+            v.addEventListener("dragstart", function (e) {
+                // console.log('666');
+                e.dataTransfer.setData("newdivID",e.target.getAttribute("id"))
+                e.dataTransfer.setData("newdiv",e.target.style.backgroundPosition)
+            })
+            
+             // 拖拽松开的时候触发事件
+            v.addEventListener("drop",function (e) {
+                e.stopPropagation()
+                e.preventDefault()
+                
+                var oldDiv = document.querySelector("#"+e.dataTransfer.getData('newdivID'))//取出并保存开始拖拽的div的id属性的div
+                var pos=e.dataTransfer.getData("newdiv") // 取出并保存开始拖拽的div的backgroundPosition属性
+                oldDiv.style.backgroundPosition=e.target.style.backgroundPosition//把准备松开到的div的backgroundPosition属性值传递给取出的那个旧div
+                e.target.style.backgroundPosition=pos// 把取出的那个旧div的backgroundPosition属性值传递给当前准备松开到的div
+            })
+            v.addEventListener("dragover",function(e){
+                e.preventDefault()
+            })
+        })
+  </script>
+</body>
+
+</html>

@@ -9,25 +9,60 @@
 			html{
 				height: 100%;
 			}
-    	body{
-				background-image: url("img/1.jpg");
+    		body{
+				background-image: url("img/bg.jpg");
 				background-repeat: no-repeat;
 				background-position: center 0;
 				background-size:100% 100%;
 			}
+			.pt{
+				position: absolute;
+				top: 10%;
+				right: 45%;
+				width: 700px;
+			}
+			.bzz{
+				position: absolute;
+				bottom: 10%;
+				left: 45%;
+				width: 700px;
+			}
+			.tl{
+				text-align: center;
+			}
+			.title{
+				width: 500px;
+			}
+			.back{
+				background-color: green;
+				position: absolute;
+				width: 90px;
+				height: 60px;
+				left: 0px;
+				top: 0px;
+				text-align: center;
+			}
+			.fhsy{
+				line-height: 50px;
+				height: 50px;
+				color: greenyellow;
+				font-size: 20px;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="clearfix">
-        <!-- 拼图游戏 -->
-        <div style="float:left;" class="picture-puzzle">
-
-        </div>
-        <!-- 对比图片 -->
-        <div style="float:right;">
-            <img src="img/3.jpg" alt="">
-        </div>
-    </div>
-    <script src="js/index.js"></script>
+		<a href="index.html">
+			<div class="back">
+				<font class="fhsy">返回首页</font>
+			</div>
+		</a>
+		<div>
+			<div class="tl">
+				<img src="img/互动游戏.png" class="title"/>
+				</br>
+			</div>
+			<a href="index-3-1.html"><img src="img/ptbt.png" class="pt"/></a>
+			<a href="index-3-2.1.html"><img src="img/bzzbt.png" class="bzz"/></a>
+		</div>
 	</body>
 </html>
